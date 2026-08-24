@@ -1,0 +1,60 @@
+/* Justin Bradley | August 23, 2026 | CSD 340 Module 3.3 - Build a Web Page Exercise, Part 3 */
+
+h1 {
+    text-align: center;
+}
+
+.side {
+    width: 45%;
+    float: left;
+}
+
+.learn-list {
+    margin-left: 5%;
+}
+
+h3 {
+    font-weight: 500;
+}
+
+ol {
+    font-weight: 300;
+}
+
+.book-list h3,
+.book-list ol {
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.book-list ol {
+    list-style-position: inside;
+}
+
+.learn-list h3,
+.learn-list ol {
+    border: 1px dashed red;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.learn-list ol {
+    list-style-position: inside;
+    list-style-type: upper-roman;
+}
+
+#return {
+    width: 100%;
+    margin-top: 60%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
