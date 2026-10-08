@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- Justin Bradley | October 7, 2026 | CSD 340 Module 10.3 - JavaScript Exercise, Part 2 -->
+<!-- Adapted from my Module 9.3 page (bradley_Mod9_3.html) and the Module 10 example -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Assignment 10.3 for CSD 340, using JavaScript mouse events to swap and display images.">
+    <meta name="keywords" content="CSD 340, HTML5, CSS, JavaScript, events, onclick, Bellevue University, Justin Bradley">
+    <meta name="author" content="Justin Bradley">
+    <link rel="stylesheet" href="bradley_Mod10_3.css">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Assignment 10.3: JavaScript - Part 2</h1>
+        <h2>Then and Now</h2>
+
+        <p class="intro">A few years, a few kids, and well... a little more muscle later.<br>Hover over any photo below to jump from "then" to "now," and click a photo to see it full size up top.</p>
+
+        <!-- Main display area; showPhoto() swaps this image and caption when a thumbnail is clicked -->
+        <figure class="main">
+            <img id="mainImage" src="images/family.jpg" alt="The whole family dressed up together">
+            <figcaption id="mainCaption">My crew, all grown up.</figcaption>
+        </figure>
+
+        <!-- Each photo shows "then" by default, swaps to "now" on hover, and calls showPhoto() on click -->
+        <div class="gallery">
+            <div class="card">
+                <img id="pair1" src="images/then_1.jpg" alt="Christmas photo from a few years ago"
+                     onmouseover="swapPhoto('pair1', 'images/now_1.jpg')"
+                     onmouseout="swapPhoto('pair1', 'images/then_1.jpg')"
+                     onclick="showPhoto(this.src, 'Christmas then, Disneyland now.')">
+                <p class="label" onmouseover="this.style.color='firebrick';" onmouseout="this.style.color='';">Us</p>
+            </div>
+
+            <div class="card">
+                <img id="pair2" src="images/then_2.jpg" alt="Standing in my old apartment"
+                     onmouseover="swapPhoto('pair2', 'images/now_2.jpg')"
+                     onmouseout="swapPhoto('pair2', 'images/then_2.jpg')"
+                     onclick="showPhoto(this.src, 'Old apartment then, theme park now.')">
+                <p class="label" onmouseover="this.style.color='firebrick';" onmouseout="this.style.color='';">Me</p>
+            </div>
+
+            <div class="card">
+                <img id="pair3" src="images/then_3.jpg" alt="Carrying a baby on a hike"
+                     onmouseover="swapPhoto('pair3', 'images/now_3.jpg')"
+                     onmouseout="swapPhoto('pair3', 'images/then_3.jpg')"
+                     onclick="showPhoto(this.src, 'One baby carrier then, a full selfie now.')">
+                <p class="label" onmouseover="this.style.color='firebrick';" onmouseout="this.style.color='';">Growing</p>
+            </div>
+
+            <div class="card">
+                <img id="pair4" src="images/then_4.jpg" alt="Walking a dirt trail together"
+                     onmouseover="swapPhoto('pair4', 'images/now_4.jpg')"
+                     onmouseout="swapPhoto('pair4', 'images/then_4.jpg')"
+                     onclick="showPhoto(this.src, 'Daytime trails then, night out now.')">
+                <p class="label" onmouseover="this.style.color='firebrick';" onmouseout="this.style.color='';">Together</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <address>
+            <p><a href="https://www.bellevue.edu/">Bellevue University</a></p>
+            <p>1000 Galvin Road South</p>
+            <p>Bellevue, NE 68005</p>
+        </address>
+    </div>
+
+    <script>
+        // Swaps a gallery image's source; used by the onmouseover and onmouseout events
+        function swapPhoto(imageId, imageFile) {
+            document.getElementById(imageId).src = imageFile;
+        }
+
+        // Runs on the onclick MouseEvent; shows the clicked photo in the main display with a new caption
+        function showPhoto(imageFile, captionText) {
+            var mainImage = document.getElementById("mainImage");
+            mainImage.src = imageFile;
+            mainImage.alt = captionText;
+            document.getElementById("mainCaption").innerHTML = captionText;
+        }
+    </script>
+</body>
+
+</html>
